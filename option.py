@@ -10,9 +10,9 @@ class Option:
         self.risk_free = risk_free
         self.dividend_yield = dividend_yield
         self.option_type = option_type
-        if self.option_type.lower() == "call":
-            self.d1 = (math.log(self.strike_price / self.strike_price) + (self.risk_free + self.vol * self.vol / 2) * self.time) / (self.vol * math.sqrt(self.time))
-            self.d2 = self.d1 - self.vol * math.sqrt(self.time)
+        # if self.option_type.lower() == "call": calculating for all always and using put call parity 
+        self.d1 = (math.log(self.strike_price / self.strike_price) + (self.risk_free + self.vol * self.vol / 2) * self.time) / (self.vol * math.sqrt(self.time))
+        self.d2 = self.d1 - self.vol * math.sqrt(self.time)
         # else:  # for put just use put call parity.
         #     self.d1 = 5
             
@@ -34,3 +34,22 @@ class Option:
         
     def iv(self, market_price): # calculate implied volatility given the market price.
         pass
+
+
+    ## put in methods for black scholes_greeks
+
+    def delta(self):
+        pass
+
+    def gamma(self):
+        pass
+
+    def theta(self):
+        pass
+
+    def rho(self):
+        pass
+
+    def vega(self):
+        pass
+
